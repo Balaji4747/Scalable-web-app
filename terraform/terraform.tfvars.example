@@ -1,0 +1,35 @@
+# General Configuration
+project_name = "scalable-web-app"
+environment  = "dev"
+aws_region   = "us-west-2"
+
+# Network Configuration
+vpc_cidr                = "10.0.0.0/16"
+public_subnet_cidrs     = ["10.0.1.0/24", "10.0.2.0/24"]
+private_subnet_cidrs    = ["10.0.3.0/24", "10.0.4.0/24"]
+database_subnet_cidrs   = ["10.0.5.0/24", "10.0.6.0/24"]
+
+# Security Configuration
+allowed_ssh_cidrs = ["YOUR_IP/32"]  # Replace with your IP
+public_key        = "ssh-rsa AAAAB3NzaC1yc2E..."  # Replace with your public key
+ssl_certificate_arn = ""  # Optional: ARN of SSL certificate
+
+# Database Configuration
+db_instance_class           = "db.t3.micro"
+db_allocated_storage        = 20
+db_max_allocated_storage    = 100
+db_name                     = "appdb"
+db_username                 = "dbadmin"
+db_password                 = "SecurePassword123!"  # Change this!
+db_backup_retention_period  = 7
+
+# ECS Configuration
+ecs_cpu           = 256
+ecs_memory        = 512
+ecs_desired_count = 2
+ecs_min_capacity  = 1
+ecs_max_capacity  = 10
+
+# Monitoring Configuration
+log_retention_days = 14
+alert_email        = "your-email@example.com"  # Replace with your email
