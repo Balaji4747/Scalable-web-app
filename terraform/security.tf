@@ -126,15 +126,17 @@ resource "aws_security_group" "bastion" {
 
 # Key Pair for EC2 instances
 resource "aws_key_pair" "main" {
+  count      = var.public_key != "" ? 1 : 0
   key_name   = "${var.project_name}-key"
   public_key = var.public_key
 }
 
 # Bastion Host
 resource "aws_instance" "bastion" {
+  count                  = var.public_key != "" ? 1 : 0
   ami                    = var.bastion_ami
   instance_type          = var.bastion_instance_type
-  key_name               = aws_key_pair.main.key_name
+  key_name               = aws_key_pair.main[0].key_name
   vpc_security_group_ids = [aws_security_group.bastion.id]
   subnet_id              = aws_subnet.public[0].id
 

@@ -11,6 +11,12 @@ variable "environment" {
   default     = "dev"
 }
 
+variable "cost_optimized" {
+  description = "Enable cost optimizations for development"
+  type        = bool
+  default     = true
+}
+
 variable "aws_region" {
   description = "AWS region"
   type        = string
@@ -115,7 +121,7 @@ variable "db_password" {
 variable "db_backup_retention_period" {
   description = "Database backup retention period (days)"
   type        = number
-  default     = 7
+  default     = 1
 }
 
 # ECS Variables
@@ -134,7 +140,7 @@ variable "ecs_memory" {
 variable "ecs_desired_count" {
   description = "Desired number of ECS tasks"
   type        = number
-  default     = 2
+  default     = 1
 }
 
 variable "ecs_min_capacity" {
@@ -153,11 +159,24 @@ variable "ecs_max_capacity" {
 variable "log_retention_days" {
   description = "CloudWatch log retention period (days)"
   type        = number
-  default     = 14
+  default     = 7
 }
 
 variable "alert_email" {
   description = "Email address for alerts"
   type        = string
   default     = ""
+}
+
+# CodeBuild Variables
+variable "github_repo_url" {
+  description = "GitHub repository URL for CodeBuild"
+  type        = string
+  default     = "https://github.com/Balaji4747/Scalable-web-app"
+}
+
+variable "github_branch" {
+  description = "GitHub branch for CodeBuild"
+  type        = string
+  default     = "feat/feature"
 }
