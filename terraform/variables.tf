@@ -174,3 +174,9 @@ variable "github_repo_url" {
   type        = string
   default     = "https://github.com/Balaji4747/Scalable-web-app"
 }
+
+variable "github_branch" {
+  description = "GitHub branch for CodeBuild"
+  type        = string
+  default     = "feat/feature"
+}
