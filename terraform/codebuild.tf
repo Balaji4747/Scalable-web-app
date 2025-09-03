@@ -42,12 +42,6 @@ resource "aws_codebuild_project" "app_build" {
     type = "GITHUB"
     location = var.github_repo_url
     git_clone_depth = 1
-    
-    git_submodules_config {
-      fetch_submodules = true
-    }
-    
-    source_version = var.github_branch
     buildspec = "buildspec.yml"
   }
 }
