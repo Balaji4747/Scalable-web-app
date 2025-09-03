@@ -24,3 +24,9 @@ output "codebuild_project_name" {
   description = "Name of the CodeBuild project"
   value       = aws_codebuild_project.app_build.name
 }
+
+# Load Balancer Output
+output "alb_dns_name" {
+  description = "DNS name of the load balancer"
+  value       = aws_lb.main.dns_name
+}
